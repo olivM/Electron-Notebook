@@ -12,7 +12,7 @@
     "compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
     "pretest": "cross-env MODE=test npm run build",
     "test": "node tests/app.spec.js",
-    "watch": "node scripts/watch.js",
+    "dev": "node scripts/watch.js",
     "lint": "eslint . --ext js,ts,vue",
     "typecheck-main": "tsc --noEmit -p packages/main/tsconfig.json",
     "typecheck-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
@@ -47,8 +47,20 @@
     "vue-tsc": "^0.2.3"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.4.0",
+    "@heroicons/vue": "^1.0.3",
+    "@octokit/rest": "^18.9.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
+    "@typescript-eslint/parser": "^4.29.2",
+    "autoprefixer": "^10.3.1",
     "electron-updater": "^4.4.5",
+    "postcss": "^8.3.6",
+    "simple-git": "^2.44.0",
+    "tailwindcss": "^2.2.7",
     "vue": "^3.2.3",
-    "vue-router": "^4.0.11"
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.0.0"
   }
 }
