@@ -21,7 +21,7 @@ defaults:
   run:
     shell: 'bash'
 
-jobs:
+not_jobs:
   typescript:
     runs-on: ubuntu-latest
 
