@@ -63,26 +63,7 @@
               >
             </div>
             <div class="flex-1 h-0 mt-5 overflow-y-auto">
-              <nav class="px-2 space-y-1">
-                <a
-                  v-for="item in navigation"
-                  :key="item.name"
-                  :href="item.href"
-                  :class="[
-                    item.current
-                      ? 'bg-indigo-800 text-white'
-                      : 'text-indigo-100 hover:bg-indigo-600',
-                    'group flex items-center px-2 py-2 text-base font-medium rounded-md',
-                  ]"
-                >
-                  <component
-                    :is="item.icon"
-                    class="flex-shrink-0 w-6 h-6 mr-4 text-indigo-300"
-                    aria-hidden="true"
-                  />
-                  {{ item.name }}
-                </a>
-              </nav>
+              <Navigation />
             </div>
           </div>
         </TransitionChild>

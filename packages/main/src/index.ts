@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
 import { URL } from 'url';
-// const { Octokit } = require("@octokit/rest");
+
+import io from '/@/io';
 
 // require the library, main export is a function
 import type { SimpleGit } from 'simple-git';
@@ -71,6 +72,10 @@ const createWindow = async () => {
 };
 
 
+// return list of files
+ipcMain.handle('app:get-files', () => {
+    return io.getFiles();
+});
 
 const cloneRepository = async () => {
 
@@ -100,6 +105,12 @@ app.on('window-all-closed', () => {
     }
 });
 
+const watchFiles = () => {
+
+    io.watchFiles(mainWindow);
+};
+
+app.whenReady().then(watchFiles);
 
 app.whenReady()
     .then(cloneRepository)
